@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
+/// This package is for SplashScreen
 import 'package:turf_project/SplashScreen.dart';
+
+
+/// This class is for Signup menu
 class SignUp extends StatelessWidget
 {
   @override
@@ -23,7 +28,7 @@ class SignUp extends StatelessWidget
           leading: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              primary:Colors.blueGrey,
+              backgroundColor:Colors.blueGrey,
             ),
             child: Icon(
               Icons.menu,
@@ -32,6 +37,8 @@ class SignUp extends StatelessWidget
             ),
           ),
           actions: [
+
+            /// Button for navigate to sign up
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -40,7 +47,7 @@ class SignUp extends StatelessWidget
               );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.blueGrey,
+                backgroundColor: Colors.blueGrey,
               ),
               child: Container(
                 margin: EdgeInsets.only(right: 5.0),

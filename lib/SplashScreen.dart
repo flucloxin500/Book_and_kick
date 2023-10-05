@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'sign_in.dart';
-/// Splash Screen
-///
 
+/// This package for lottie animation
+import 'package:lottie/lottie.dart';
+/// This package for navigate to sign in menu
+import 'sign_in.dart';
+
+/// This class is for Signin elevated button
 
 class FirstPage extends StatelessWidget{
   @override
@@ -30,10 +32,13 @@ class FirstPage extends StatelessWidget{
 
 }
 
+/// This class is for Splash Screen
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    /// Timer fopr the Splash timing
     Future.delayed(Duration(seconds: 4), () {
+      /// Navigator after the animation times up
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -50,6 +55,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             // Your app logo image in a round shape
             ClipOval(
+              /// Showing the app logo with circle
               child: Image.asset(
                 'assets/logo.jpg',
                 width: 180, // Adjust the width as needed
@@ -69,6 +75,8 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
 
+            // App version serial
+
             Text(
               'version 1.0.0.1',
               style: TextStyle(
@@ -76,6 +84,7 @@ class SplashScreen extends StatelessWidget {
 
               ),
             ),
+            /// Here is the lottie animation resourse
             Lottie.asset('assets/loading2.json',
             width: 150,
             height: 150,
