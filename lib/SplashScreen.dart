@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// This package for lottie animation
 import 'package:lottie/lottie.dart';
 /// This package for navigate to sign in menu
-import 'sign_in.dart';
+import 'top_right_button.dart';
 
 /// This class is for Signin elevated button
 
@@ -19,10 +19,13 @@ class FirstPage extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('This will be fullfilled soon In\'ShaAllah',
-            style: TextStyle(
-              fontSize: 22,
-            ),)
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text('This will be fullfilled soon In\'ShaAllah',
+              style: TextStyle(
+                fontSize: 22,
+              ),),
+            )
 
           ],
         ),
@@ -42,7 +45,7 @@ class SplashScreen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => SignUp(), // Replace 'FirstPage()' with your actual first page widget
+          builder: (context) => TopButton(), // Replace 'FirstPage()' with your actual first page widget
         ),
       );
     });
