@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:turf_project/SplashScreen.dart';
+import 'package:turf_project/login.dart';
+
 import 'package:turf_project/top_left_navigation.dart';
 
 
-class TopButton extends StatelessWidget {
+class MainHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,7 +43,7 @@ class TopButton extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => FirstPage()),
+                      MaterialPageRoute(builder: (context) => Login()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
