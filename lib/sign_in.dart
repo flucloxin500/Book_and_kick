@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:turf_project/mainmenu.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -14,24 +14,19 @@ class _SigninState extends State<Signin> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: Row(
-          children: [
-            SizedBox(
-              width: 50.0,
-              height: 50.0,
-              //child: Image.asset('Book & kick logo'),
-            ),
-            SizedBox(width: 10.0),
-            Text(
-              'Sign in Page',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-              ),
-            ),
-          ],
+        title: Text('Book & Kick'),
+        leading: IconButton(
+          icon: Container(
+              height: 26,
+              width: 26,
+              child: Image.asset('assets/back_button.png')),
+          onPressed: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => MainHomeScreen()),
+            );
+          },
         ),
-        toolbarHeight: 50.0,
+        toolbarHeight: 60,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -119,5 +114,3 @@ class _SigninState extends State<Signin> {
     );
   }
 }
-
-

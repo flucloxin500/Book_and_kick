@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:turf_project/mainmenu.dart';
 import 'package:turf_project/sign_in.dart';
 
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        title: Text('Book & Kick'),
+        leading: IconButton(
+          icon: Container(
+            height: 26,
+              width: 26,
+              child: Image.asset('assets/back_button.png')),
+          onPressed: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => MainHomeScreen()),
+            );
+          },
+        ),
+        toolbarHeight: 60,
+      ),
       body: Container(
         width: double.infinity,
 
@@ -98,18 +115,27 @@ class Login extends StatelessWidget {
             height: 8,
           ),
           Container(
-            width: 100,
+            width: 120,
+            height: 60,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0), // Adjust the radius as needed
+                  ),// This makes the button circular
+                  padding: EdgeInsets.all(16.0),
+
                   backgroundColor: Colors.black54,
                 ),
                 onPressed: () {
                   print("Logged in");
                 },
-                child: Text("Login")),
+                child: Text("Login",
+                style: TextStyle(
+                  fontSize: 17),)),
           )
         ]),
       ),
     );
   }
 }
+

@@ -12,7 +12,7 @@ class MainHomeScreen extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          toolbarHeight: 70,
+          toolbarHeight: 60,
           backgroundColor: Colors.blueGrey,
           centerTitle: true,
           title: Text(
@@ -59,6 +59,14 @@ class MainHomeScreen extends StatelessWidget {
                   ),
                 ),
           ],
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Bye Bye'),
+            ],
+          ),
         ),
       ),
     );

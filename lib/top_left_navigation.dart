@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:turf_project/mainmenu.dart';
 
 class TopLeftNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
         title: Text('Book & Kick'),
+        leading: IconButton(
+          icon: Container(
+              height: 26,
+              width: 26,
+              child: Image.asset('assets/back_button.png')),
+          onPressed: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => MainHomeScreen()),
+            );
+          },
+        ),
+        toolbarHeight: 60,
       ),
       backgroundColor: Colors.amberAccent,
       body: Center(
