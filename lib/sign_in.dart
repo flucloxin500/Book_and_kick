@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turf_project/mainmenu.dart';
 
@@ -11,104 +12,139 @@ class Signin extends StatefulWidget {
 class _SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: Text('Book & Kick'),
         leading: IconButton(
           icon: Container(
-              height: 26,
-              width: 26,
-              child: Image.asset('assets/back_button.png')),
-          onPressed: (){
+            height: screenWidth * 0.1,
+            width: screenWidth * 0.1,
+            child: Image.asset('assets/back_button.png'),
+          ),
+          onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => MainHomeScreen()),
             );
           },
         ),
-        toolbarHeight: 60,
+        toolbarHeight:
+            screenHeight * 0.1, // Adjust toolbar height based on screen height
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(begin: Alignment.center, colors: [
+            Colors.blueGrey,
+            Colors.grey,
+          ]),
+        ),
+        child: Scrollbar(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(
+                    screenWidth * 0.05), // Adjust padding based on screen width
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth *
+                          0.1), // Adjust the radius based on screen width
+                    ),
+                    labelText: 'Name',
+                    hintText: 'Enter your name',
                   ),
-                  labelText: 'Name',
-                  hintText: 'Enter your name',
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+              Padding(
+                padding: EdgeInsets.all(
+                    screenWidth * 0.05), // Adjust padding based on screen width
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth *
+                          0.1), // Adjust the radius based on screen width
+                    ),
+                    labelText: 'Email',
+                    hintText: 'Enter your email',
                   ),
-                  labelText: 'Email',
-                  hintText: 'Enter your email',
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+              Padding(
+                padding: EdgeInsets.all(
+                    screenWidth * 0.05), // Adjust padding based on screen width
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth *
+                          0.1), // Adjust the radius based on screen width
+                    ),
+                    labelText: 'Mobile Number',
+                    hintText: 'Enter your Mobile Number',
                   ),
-                  labelText: 'Mobile Number',
-                  hintText: 'Enter your Mobile Number',
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+              Padding(
+                padding: EdgeInsets.all(
+                    screenWidth * 0.05), // Adjust padding based on screen width
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth *
+                          0.1), // Adjust the radius based on screen width
+                    ),
+                    labelText: 'Password',
+                    hintText: 'Enter your secure password',
                   ),
-                  labelText: 'Password',
-                  hintText: 'Enter your secure password',
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+              Padding(
+                padding: EdgeInsets.all(
+                    screenWidth * 0.05), // Adjust padding based on screen width
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth *
+                          0.1), // Adjust the radius based on screen width
+                    ),
+                    labelText: 'Confirm Password',
+                    hintText: 'Enter your password',
                   ),
-                  labelText: 'Confirm Password',
-                  hintText: 'Enter your password',
                 ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'Register',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+              Container(
+                height: screenHeight *
+                    0.1, // Adjust button height based on screen height
+                width: screenWidth *
+                    0.4, // Adjust button width based on screen width
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(screenWidth *
+                          0.1), // Adjust the radius based on screen width
+                    ),
+                    padding: EdgeInsets.all(screenWidth *
+                        0.05), // Adjust padding based on screen width
+                    backgroundColor: Colors.black54,
+                  ),
+                  onPressed: () {
+                    print("Registered");
+                  },
+                  child: Text(
+                    "Register",
+                    style: TextStyle(
+                      fontSize: screenWidth *
+                          0.05, // Adjust font size based on screen width
+                    ),
+                  ),
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                elevation: 10.0,
-                backgroundColor: Colors.blueGrey,
-                fixedSize: Size(200.0, 60.0),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

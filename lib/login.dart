@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turf_project/mainmenu.dart';
 import 'package:turf_project/sign_in.dart';
@@ -5,97 +6,98 @@ import 'package:turf_project/sign_in.dart';
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: Text('Book & Kick'),
         leading: IconButton(
           icon: Container(
-            height: 26,
-              width: 26,
-              child: Image.asset('assets/back_button.png')),
-          onPressed: (){
+            height: screenWidth * 0.1,
+            width: screenWidth * 0.1,
+            child: Image.asset('assets/back_button.png'),
+          ),
+          onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => MainHomeScreen()),
             );
           },
         ),
-        toolbarHeight: 60,
+        toolbarHeight: screenHeight * 0.1, // Adjust toolbar height based on screen height
       ),
       body: Container(
         width: double.infinity,
-
-        /// Multiple colour on body
         decoration: BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.center, colors: [
-          Colors.blueGrey,
-          Colors.grey,
-        ])),
-
-        ///Login text
-        child: Column(children: [
-          SizedBox(
-            height: 100,
-          ),
-          Text(
-            "Login",
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.w600,
-              color: Colors.black45,
+          gradient: LinearGradient(begin: Alignment.center, colors: [
+            Colors.blueGrey,
+            Colors.grey,
+          ]),
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: screenHeight * 0.1,
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-
-          ///Text field(email,password box)
-          SizedBox(
-            width: 390,
-            child: TextField(
-              decoration: InputDecoration(
+            Text(
+              "Login",
+              style: TextStyle(
+                fontSize: screenWidth * 0.1, // Adjust font size based on screen width
+                fontWeight: FontWeight.w600,
+                color: Colors.black45,
+              ),
+            ),
+            SizedBox(
+              height: screenHeight * 0.05,
+            ),
+            SizedBox(
+              width: screenWidth * 0.9, // Adjust width based on screen width
+              child: TextField(
+                decoration: InputDecoration(
                   fillColor: Colors.black45,
                   filled: true,
                   hintText: "Enter email address or number",
-                  hintStyle: TextStyle(color: Colors.white60)),
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          SizedBox(
-            width: 390,
-            child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                    fillColor: Colors.black45,
-                    filled: true,
-                    hintText: "Enter password",
-                    hintStyle: TextStyle(color: Colors.white60))),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Don't have any account? ",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87,
+                  hintStyle: TextStyle(color: Colors.white60),
                 ),
               ),
-
-              ///Signup button
-              TextButton(
+            ),
+            SizedBox(
+              height: screenHeight * 0.015,
+            ),
+            SizedBox(
+              width: screenWidth * 0.9, // Adjust width based on screen width
+              child: TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  fillColor: Colors.black45,
+                  filled: true,
+                  hintText: "Enter password",
+                  hintStyle: TextStyle(color: Colors.white60),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenHeight * 0.01,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have any account? ",
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.04, // Adjust font size based on screen width
+                    color: Colors.black87,
+                  ),
+                ),
+                TextButton(
                   style: OutlinedButton.styleFrom(
-                      textStyle: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  )),
+                    textStyle: TextStyle(
+                      fontSize: screenWidth * 0.045, // Adjust font size based on screen width
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                   onPressed: () {
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Signin()),
@@ -104,38 +106,41 @@ class Login extends StatelessWidget {
                   child: Text(
                     "Sign in",
                     style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Colors.black),
-                  ))
-            ],
-          ),
-
-          ///Login button
-          SizedBox(
-            height: 8,
-          ),
-          Container(
-            width: 120,
-            height: 60,
-            child: ElevatedButton(
+                      decoration: TextDecoration.underline,
+                      color: Colors.black,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: screenHeight * 0.02,
+            ),
+            Container(
+              width: screenWidth * 0.4, // Adjust width based on screen width
+              height: screenHeight * 0.1, // Adjust height based on screen height
+              child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0), // Adjust the radius as needed
-                  ),// This makes the button circular
-                  padding: EdgeInsets.all(16.0),
-
+                    borderRadius: BorderRadius.circular(screenWidth * 0.05), // Adjust the radius based on screen width
+                  ),
+                  padding: EdgeInsets.all(screenWidth * 0.03), // Adjust padding based on screen width
                   backgroundColor: Colors.black54,
                 ),
                 onPressed: () {
                   print("Logged in");
                 },
-                child: Text("Login",
-                style: TextStyle(
-                  fontSize: 17),)),
-          )
-        ]),
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.04, // Adjust font size based on screen width
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 }
-

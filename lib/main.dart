@@ -1,8 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:turf_project/mainmenu.dart';
-
-/// This package for splash screen menu
 
 void main() {
   runApp(MyApp());
@@ -15,26 +14,27 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       home:
-          SplashScreen(), // Display the SplashScreen widget as the first screen
+      SplashScreen(), // Display the SplashScreen widget as the first screen
     );
   }
 }
 
-/// This class is for Splash Screen
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    /// Timer fopr the Splash timing
-    Future.delayed(Duration(seconds: 4), () {
-      /// Navigator after the animation times up
+    Future.delayed(Duration(seconds: 4),(){
       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
+          context,
+          MaterialPageRoute(
           builder: (context) =>
-              MainHomeScreen(), // Replace 'FirstPage()' with your actual first page widget
-        ),
+          MainHomeScreen(), // Replace 'FirstPage()' with your actual first page widget
+      ),
       );
     });
+    // Use MediaQuery to get the screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Center(
@@ -43,38 +43,38 @@ class SplashScreen extends StatelessWidget {
           children: [
             // Your app logo image in a round shape
             ClipOval(
-              /// Showing the app logo with circle
               child: Image.asset(
                 'assets/logo.jpg',
-                width: 180, // Adjust the width as needed
-                height: 180, // Adjust the height as needed
+                width: screenWidth * 0.4, // Adjust the width as a fraction of the screen width
+                height: screenWidth * 0.4, // Adjust the height accordingly
                 fit: BoxFit.fill,
               ),
             ),
 
-            SizedBox(height: 30),
+            SizedBox(height: screenHeight * 0.05), // Adjust spacing based on screen height
 
             // Your app name text goes here
             Text(
               'Book & Kick',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: screenWidth * 0.05, // Adjust font size based on screen width
                 fontWeight: FontWeight.bold,
               ),
             ),
 
             // App version serial
-
             Text(
               'version 1.0.0.1',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: screenWidth * 0.03, // Adjust font size based on screen width
               ),
             ),
 
-            /// Here is the lottie animation resourse
+            // Here is the lottie animation resource
             Lottie.asset('assets/loading2.json',
-                width: 150, height: 150, fit: BoxFit.fill),
+                width: screenWidth * 0.3, // Adjust width based on screen width
+                height: screenWidth * 0.3, // Adjust height accordingly
+                fit: BoxFit.fill),
           ],
         ),
       ),
