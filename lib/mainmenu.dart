@@ -6,21 +6,17 @@ import 'package:turf_project/top_left_navigation.dart';
 class MainHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Get screen dimensions using MediaQuery
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: screenHeight * 0.1, // Adjust toolbar height based on screen height
+        toolbarHeight: AppBar().preferredSize.height,
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
         title: Text(
           "Book & Kick",
           style: TextStyle(
             color: Colors.black87,
-            fontSize: screenWidth * 0.05, // Adjust font size based on screen width
+            fontSize: 24,
             fontWeight: FontWeight.w800,
           ),
         ),
@@ -37,7 +33,7 @@ class MainHomeScreen extends StatelessWidget {
           child: Icon(
             Icons.menu,
             color: Colors.white,
-            size: screenWidth * 0.05, // Adjust icon size based on screen width
+            size: 20,
           ),
         ),
         actions: [
@@ -53,24 +49,77 @@ class MainHomeScreen extends StatelessWidget {
               child: Icon(
                 Icons.login_sharp,
                 color: Colors.white,
-                size: screenWidth * 0.05, // Adjust icon size based on screen width
+                size: 20,
               ),
             ),
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          width: screenWidth * 0.3, // Adjust container width based on screen width
-          height: screenHeight * 0.2, // Adjust container height based on screen height
-          color: Colors.blue,
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              // Add your content here
-            ],
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return orientation == Orientation.portrait
+              ? buildPortraitLayout(context)
+              : buildLandscapeLayout(context);
+        },
+      ),
+    );
+  }
+
+  Widget buildPortraitLayout(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: screenWidth * 0.95,
+                height: screenHeight * 0.3,
+                decoration: BoxDecoration(
+                  color: Colors.black38,
+                  borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                ),
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    // Add your content here
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildLandscapeLayout(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return SingleChildScrollView(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: screenWidth * 0.5,
+            height: screenHeight * 0.8,
+            decoration: BoxDecoration(
+              color: Colors.black38,
+              borderRadius: BorderRadius.circular(screenWidth * 0.05),
+            ),
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                // Add your content here
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

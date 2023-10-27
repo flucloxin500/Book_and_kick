@@ -26,13 +26,14 @@ class _SigninState extends State<Signin> {
             child: Image.asset('assets/back_button.png'),
           ),
           onPressed: () {
-            Navigator.of(context).push(
+            Navigator.pop(
+              context,
               MaterialPageRoute(builder: (context) => MainHomeScreen()),
             );
           },
         ),
         toolbarHeight:
-            screenHeight * 0.1, // Adjust toolbar height based on screen height
+        screenHeight * 0.1, // Adjust toolbar height based on screen height
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -45,13 +46,12 @@ class _SigninState extends State<Signin> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(
-                    screenWidth * 0.05), // Adjust padding based on screen width
+                padding: EdgeInsets.all(screenWidth * 0.05),
                 child: TextField(
+                  textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth *
-                          0.1), // Adjust the radius based on screen width
+                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
                     ),
                     labelText: 'Name',
                     hintText: 'Enter your name',
@@ -59,27 +59,13 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(
-                    screenWidth * 0.05), // Adjust padding based on screen width
+                padding: EdgeInsets.all(screenWidth * 0.05),
                 child: TextField(
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth *
-                          0.1), // Adjust the radius based on screen width
-                    ),
-                    labelText: 'Email',
-                    hintText: 'Enter your email',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(
-                    screenWidth * 0.05), // Adjust padding based on screen width
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth *
-                          0.1), // Adjust the radius based on screen width
+                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
                     ),
                     labelText: 'Mobile Number',
                     hintText: 'Enter your Mobile Number',
@@ -87,14 +73,26 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(
-                    screenWidth * 0.05), // Adjust padding based on screen width
+                padding: EdgeInsets.all(screenWidth * 0.05),
                 child: TextField(
-                  obscureText: true,
+                  textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth *
-                          0.1), // Adjust the radius based on screen width
+                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
+                    ),
+                    labelText: 'Email',
+                    hintText: 'Enter your email',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(screenWidth * 0.05),
+                child: TextField(
+                  obscureText: true,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
                     ),
                     labelText: 'Password',
                     hintText: 'Enter your secure password',
@@ -102,14 +100,13 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(
-                    screenWidth * 0.05), // Adjust padding based on screen width
+                padding: EdgeInsets.all(screenWidth * 0.05),
                 child: TextField(
                   obscureText: true,
+                  textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth *
-                          0.1), // Adjust the radius based on screen width
+                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
                     ),
                     labelText: 'Confirm Password',
                     hintText: 'Enter your password',
@@ -117,18 +114,14 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               Container(
-                height: screenHeight *
-                    0.1, // Adjust button height based on screen height
-                width: screenWidth *
-                    0.4, // Adjust button width based on screen width
+                height: screenHeight * 0.1,
+                width: screenWidth * 0.4,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(screenWidth *
-                          0.1), // Adjust the radius based on screen width
+                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
                     ),
-                    padding: EdgeInsets.all(screenWidth *
-                        0.05), // Adjust padding based on screen width
+                    padding: EdgeInsets.all(screenWidth * 0.05),
                     backgroundColor: Colors.black54,
                   ),
                   onPressed: () {
@@ -137,8 +130,7 @@ class _SigninState extends State<Signin> {
                   child: Text(
                     "Register",
                     style: TextStyle(
-                      fontSize: screenWidth *
-                          0.05, // Adjust font size based on screen width
+                      fontSize: screenWidth * 0.05,
                     ),
                   ),
                 ),
