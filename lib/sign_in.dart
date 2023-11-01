@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:turf_project/mainmenu.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -26,10 +25,9 @@ class _SigninState extends State<Signin> {
             child: Image.asset('assets/back_button.png'),
           ),
           onPressed: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(builder: (context) => MainHomeScreen()),
-            );
+            Navigator.popUntil(context, (MainHomeScreen) {
+            return MainHomeScreen.isFirst; // Replace with your condition
+          });
           },
         ),
         toolbarHeight:

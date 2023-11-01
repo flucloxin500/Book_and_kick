@@ -20,9 +20,7 @@ class Login extends StatelessWidget {
             child: Image.asset('assets/back_button.png'),
           ),
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => MainHomeScreen()),
-            );
+            Navigator.pop(context);
           },
         ),
         toolbarHeight:
@@ -115,7 +113,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => Signin()),
                       );

@@ -60,6 +60,7 @@ flutter:
     - assets/loading2.json
     - assets/logo.jpg
     - assets/back_button.png
+    - assets/rotate.json
     # Replace with the path to your Lottie animation file
 
   # The following line ensures that the Material Icons font is

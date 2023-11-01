@@ -105,19 +105,10 @@ class MainHomeScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: screenWidth * 0.5,
-            height: screenHeight * 0.8,
-            decoration: BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.circular(screenWidth * 0.05),
-            ),
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                // Add your content here
-              ],
-            ),
+          Text('Please rotate your phone'),
+          Image.asset(
+            'assets/rotate.json',
+            
           ),
         ],
       ),

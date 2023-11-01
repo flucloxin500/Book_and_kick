@@ -25,9 +25,7 @@ class TopLeftNavigation extends StatelessWidget {
                 child: Image.asset('assets/back_button.png'),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MainHomeScreen()),
-                );
+                Navigator.pop(context);
               },
             ),
             toolbarHeight:
