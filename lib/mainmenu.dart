@@ -2,12 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turf_project/login.dart';
 import 'package:turf_project/top_left_navigation.dart';
+import 'package:intl/intl.dart';
+import 'package:turf_project/landscape.dart';
 
 class MainHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return orientation == Orientation.portrait
+              ? buildPortraitLayout(context)
+              : buildLandscapeLayout(context);
+        },
+      ),
+    );
+  }
+
+  Widget buildPortraitLayout(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return Scaffold(
       appBar: AppBar(
         toolbarHeight: AppBar().preferredSize.height,
         backgroundColor: Colors.blueGrey,
@@ -55,24 +71,57 @@ class MainHomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          return orientation == Orientation.portrait
-              ? buildPortraitLayout(context)
-              : buildLandscapeLayout(context);
-        },
-      ),
-    );
-  }
-
-  Widget buildPortraitLayout(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
         children: [
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    margin: EdgeInsets.only(left: 4.5),
+                    height: screenHeight * 0.0399,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Text(
+                          'Time: ${DateFormat('hh:mm').format(DateTime.now())}',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: screenHeight * 0.0399,
+                    width: screenWidth * 0.08,
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Text(
+                          'Today: ${DateFormat('dd-MM-yyyy').format(DateTime.now())}',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -86,6 +135,9 @@ class MainHomeScreen extends StatelessWidget {
                 child: ListView(
                   shrinkWrap: true,
                   children: [
+                    // Image.asset(
+                    //   'assets/loading2.json',
+                    // ),
                     // Add your content here
                   ],
                 ),
@@ -101,17 +153,6 @@ class MainHomeScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return SingleChildScrollView(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Please rotate your phone'),
-          Image.asset(
-            'assets/rotate.json',
-            
-          ),
-        ],
-      ),
-    );
+    return RotatePhone();
   }
 }

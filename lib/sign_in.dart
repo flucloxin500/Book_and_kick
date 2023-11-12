@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:turf_project/landscape.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -33,7 +34,24 @@ class _SigninState extends State<Signin> {
         toolbarHeight:
         screenHeight * 0.1, // Adjust toolbar height based on screen height
       ),
-      body: Container(
+
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return orientation == Orientation.portrait
+              ? buildPortraitLayout(context)
+              : buildLandscapeLayout(context);
+        },
+      ),
+
+    );
+  }
+
+
+  Widget buildPortraitLayout(BuildContext context) {
+      final screenWidth = MediaQuery.of(context).size.width;
+      final screenHeight = MediaQuery.of(context).size.height;
+
+      return Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(begin: Alignment.center, colors: [
             Colors.blueGrey,
@@ -136,7 +154,13 @@ class _SigninState extends State<Signin> {
             ],
           ),
         ),
-      ),
-    );
+      );
+  }
+
+  Widget buildLandscapeLayout(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return RotatePhone();
   }
 }

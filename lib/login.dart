@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:turf_project/landscape.dart';
 import 'package:turf_project/mainmenu.dart';
 import 'package:turf_project/sign_in.dart';
 
@@ -164,131 +165,7 @@ class Login extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(begin: Alignment.center, colors: [
-          Colors.blueGrey,
-          Colors.grey,
-        ]),
-      ),
-      child: ListView(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.1,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black45,
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.1,
-                  ),
-                  SizedBox(
-                    width: screenWidth * 0.5,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        fillColor: Colors.black45,
-                        filled: true,
-                        hintText: "Enter email address or number",
-                        hintStyle: TextStyle(color: Colors.white60),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.015,
-                  ),
-                  SizedBox(
-                    width: screenWidth * 0.5,
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        fillColor: Colors.black45,
-                        filled: true,
-                        hintText: "Enter password",
-                        hintStyle: TextStyle(color: Colors.white60),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.01,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don't have any account? ",
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.04,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      TextButton(
-                        style: OutlinedButton.styleFrom(
-                          textStyle: TextStyle(
-                            fontSize: screenWidth * 0.045,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Signin()),
-                          );
-                        },
-                        child: Text(
-                          "Sign in",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Colors.black,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.02,
-                  ),
-                  Container(
-                    width: screenWidth * 0.2,
-                    height: screenHeight * 0.1,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(screenWidth * 0.05),
-                        ),
-                        padding: EdgeInsets.all(screenWidth * 0.03),
-                        backgroundColor: Colors.white,
-                      ),
-                      onPressed: () {
-                        print("Logged in");
-                      },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.4,
-                          color: Colors.black38,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.4,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ]
-    ),
-    );
+    return RotatePhone();
   }
 }
 
