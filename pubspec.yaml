@@ -67,6 +67,10 @@ flutter:
     - assets/d_and_c.jpg
     - assets/frenzy.jpg
     - assets/timeout.jpg
+    - assets/akc.jpg
+    - assets/global_sports.jpg
+    - assets/sportsX.jpg
+    - assets/victory.jpg
     # Replace with the path to your Lottie animation file
 
   # The following line ensures that the Material Icons font is
