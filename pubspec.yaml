@@ -39,6 +39,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   lottie: ^2.6.0
   intl: ^0.18.1
+  webview_flutter: ^4.4.2
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,10 @@ flutter:
     - assets/logo.jpg
     - assets/back_button.png
     - assets/rotate.json
+    - assets/rs_dynamic.jpg
+    - assets/d_and_c.jpg
+    - assets/frenzy.jpg
+    - assets/timeout.jpg
     # Replace with the path to your Lottie animation file
 
   # The following line ensures that the Material Icons font is

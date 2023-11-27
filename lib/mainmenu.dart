@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turf_project/login.dart';
@@ -122,27 +123,132 @@ class MainHomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
                 width: screenWidth * 0.95,
-                height: screenHeight * 0.3,
-                decoration: BoxDecoration(
-                  color: Colors.black38,
-                  borderRadius: BorderRadius.circular(screenWidth * 0.05),
-                ),
-                child: ListView(
-                  shrinkWrap: true,
+                height: screenHeight * 0.455,
+                child: GridView.count(
+                  crossAxisCount: 2,
                   children: [
-                    // Image.asset(
-                    //   'assets/loading2.json',
-                    // ),
-                    // Add your content here
+                    Container(
+                      child: Card(
+                        child: Container(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TopLeftNavigation()),
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Frenzy Sports Arena',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                Image.asset(
+                                  'assets/frenzy.jpg',
+                                  height: screenHeight * 0.185,
+                                  width: screenWidth * 0.427,
+                                  fit: BoxFit.fill,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Card(
+                        child: Container(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TopLeftNavigation()),
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Timeout',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                Image.asset(
+                                  'assets/timeout.jpg',
+                                  height: screenHeight * 0.185,
+                                  width: screenWidth * 0.427,
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Card(
+                        child: Container(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TopLeftNavigation()),
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                  'RS Dynamic Ground',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                Image.asset(
+                                  'assets/rs_dynamic.jpg',
+                                  height: screenHeight * 0.185,
+                                  width: screenWidth * 0.427,
+                                  fit: BoxFit.fill,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Card(
+                        child: Container(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TopLeftNavigation()),
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                  'D&C Arena',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                Image.asset(
+                                  'assets/d_and_c.jpg',
+                                  height: screenHeight * 0.185,
+                                  width: screenWidth * 0.427,
+                                  fit: BoxFit.fill,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
-                ),
-              ),
-            ),
+                )),
           ),
         ],
       ),
@@ -150,9 +256,6 @@ class MainHomeScreen extends StatelessWidget {
   }
 
   Widget buildLandscapeLayout(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return RotatePhone();
   }
 }

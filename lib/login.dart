@@ -75,6 +75,9 @@ class Login extends StatelessWidget {
                     filled: true,
                     hintText: "Enter email address or number",
                     hintStyle: TextStyle(color: Colors.white60),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                    ),
                   ),
                 ),
               ),
@@ -90,6 +93,9 @@ class Login extends StatelessWidget {
                     filled: true,
                     hintText: "Enter password",
                     hintStyle: TextStyle(color: Colors.white60),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                    ),
                   ),
                 ),
               ),
@@ -135,21 +141,24 @@ class Login extends StatelessWidget {
               Container(
                 width: screenWidth * 0.4,
                 height: screenHeight * 0.1,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(screenWidth * 0.018),
+                      ),
+                      padding: EdgeInsets.all(screenWidth * 0.05),
+                      backgroundColor: Colors.black54,
                     ),
-                    padding: EdgeInsets.all(screenWidth * 0.03),
-                    backgroundColor: Colors.black54,
-                  ),
-                  onPressed: () {
-                    print("Logged in");
-                  },
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.04,
+                    onPressed: () {
+                      print("Logged in");
+                    },
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.05,
+                      ),
                     ),
                   ),
                 ),

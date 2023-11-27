@@ -27,14 +27,13 @@ class _SigninState extends State<Signin> {
           ),
           onPressed: () {
             Navigator.popUntil(context, (MainHomeScreen) {
-            return MainHomeScreen.isFirst; // Replace with your condition
-          });
+              return MainHomeScreen.isFirst; // Replace with your condition
+            });
           },
         ),
         toolbarHeight:
-        screenHeight * 0.1, // Adjust toolbar height based on screen height
+            screenHeight * 0.1, // Adjust toolbar height based on screen height
       ),
-
       body: OrientationBuilder(
         builder: (context, orientation) {
           return orientation == Orientation.portrait
@@ -42,119 +41,137 @@ class _SigninState extends State<Signin> {
               : buildLandscapeLayout(context);
         },
       ),
-
     );
   }
 
-
   Widget buildPortraitLayout(BuildContext context) {
-      final screenWidth = MediaQuery.of(context).size.width;
-      final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
-      return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.center, colors: [
-            Colors.blueGrey,
-            Colors.grey,
-          ]),
-        ),
-        child: Scrollbar(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: TextField(
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
-                    ),
-                    labelText: 'Name',
-                    hintText: 'Enter your name',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: TextField(
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
-                    ),
-                    labelText: 'Mobile Number',
-                    hintText: 'Enter your Mobile Number',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: TextField(
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
-                    ),
-                    labelText: 'Email',
-                    hintText: 'Enter your email',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: TextField(
-                  obscureText: true,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
-                    ),
-                    labelText: 'Password',
-                    hintText: 'Enter your secure password',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: TextField(
-                  obscureText: true,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
-                    ),
-                    labelText: 'Confirm Password',
-                    hintText: 'Enter your password',
-                  ),
-                ),
-              ),
-              Container(
-                height: screenHeight * 0.1,
-                width: screenWidth * 0.4,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.1),
-                    ),
-                    padding: EdgeInsets.all(screenWidth * 0.05),
-                    backgroundColor: Colors.black54,
-                  ),
-                  onPressed: () {
-                    print("Registered");
-                  },
-                  child: Text(
-                    "Register",
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.05,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(begin: Alignment.center, colors: [
+          Colors.blueGrey,
+          Colors.grey,
+        ]),
+      ),
+      child: ListView(
+        children: [
+          SizedBox(
+            height: screenHeight * 0.01,
           ),
-        ),
-      );
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Text(
+                'Create a new account',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  foreground: Paint()
+                    ..style = PaintingStyle.stroke
+                    ..strokeWidth = 2
+                    ..color = Colors.black45,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(screenWidth * 0.05),
+            child: TextField(
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                ),
+                labelText: 'Name',
+                hintText: 'Enter your name',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(screenWidth * 0.05),
+            child: TextField(
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                ),
+                labelText: 'Mobile Number',
+                hintText: 'Enter your Mobile Number',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(screenWidth * 0.05),
+            child: TextField(
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                ),
+                labelText: 'Email',
+                hintText: 'Enter your email',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(screenWidth * 0.05),
+            child: TextField(
+              obscureText: true,
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                ),
+                labelText: 'Password',
+                hintText: 'Enter your secure password',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(screenWidth * 0.05),
+            child: TextField(
+              obscureText: true,
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                ),
+                labelText: 'Confirm Password',
+                hintText: 'Enter your password',
+              ),
+            ),
+          ),
+          Container(
+            height: screenHeight * 0.1,
+            width: screenWidth * 0.4,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(screenWidth * 0.018),
+                  ),
+                  padding: EdgeInsets.all(screenWidth * 0.05),
+                  backgroundColor: Colors.black54,
+                ),
+                onPressed: () {
+                  print("Registered");
+                },
+                child: Text(
+                  "Register",
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.05,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget buildLandscapeLayout(BuildContext context) {
