@@ -1,31 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turf_project/landscape.dart';
-import 'package:turf_project/mainmenu.dart';
 import 'package:turf_project/sign_in.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: AppBar().preferredSize.height,
         backgroundColor: Colors.blueGrey,
-        title: Text('Book & Kick'),
+        title: Text('Book & Kick',
+            style: TextStyle(fontSize: screenWidth * 0.051)),
         leading: IconButton(
           icon: Container(
-            height: 26,
-            width: 26,
+            height: screenWidth * 0.06,
+            width: screenWidth * 0.06,
             child: Image.asset('assets/back_button.png'),
           ),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        toolbarHeight:
-        screenHeight * 0.1,
       ),
       body: OrientationBuilder(
         builder: (context, orientation) {
@@ -59,9 +63,18 @@ class Login extends StatelessWidget {
               Text(
                 "Login",
                 style: TextStyle(
-                  fontSize: screenWidth * 0.1,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black45,
+                  fontFamily: 'Roboto',
+                  fontSize: screenHeight * 0.065,
+                  color: Colors.black54,
+                  letterSpacing: 2.0,
+                  wordSpacing: 4.0,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black,
+                      offset: Offset(2, 2),
+                      blurRadius: 3,
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -69,14 +82,16 @@ class Login extends StatelessWidget {
               ),
               SizedBox(
                 width: screenWidth * 0.9,
-                child: TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.black45,
-                    filled: true,
-                    hintText: "Enter email address or number",
-                    hintStyle: TextStyle(color: Colors.white60),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                child: Padding(
+                  padding: EdgeInsets.all(screenHeight * 0.0011),
+                  child: TextField(
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                      ),
+                      labelText: 'Enter your email or number',
+                      hintText: 'Email or number',
                     ),
                   ),
                 ),
@@ -86,15 +101,16 @@ class Login extends StatelessWidget {
               ),
               SizedBox(
                 width: screenWidth * 0.9,
-                child: TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    fillColor: Colors.black45,
-                    filled: true,
-                    hintText: "Enter password",
-                    hintStyle: TextStyle(color: Colors.white60),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                child: Padding(
+                  padding: EdgeInsets.all(screenHeight * 0.0011),
+                  child: TextField(
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                      ),
+                      labelText: 'Enter your password',
+                      hintText: 'Type password',
                     ),
                   ),
                 ),
@@ -146,7 +162,8 @@ class Login extends StatelessWidget {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(screenWidth * 0.018),
+                        borderRadius:
+                            BorderRadius.circular(screenWidth * 0.018),
                       ),
                       padding: EdgeInsets.all(screenWidth * 0.05),
                       backgroundColor: Colors.black54,
@@ -169,12 +186,11 @@ class Login extends StatelessWidget {
       ),
     );
   }
-
-  Widget buildLandscapeLayout(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return RotatePhone();
-  }
 }
 
+Widget buildLandscapeLayout(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
+
+  return RotatePhone();
+}

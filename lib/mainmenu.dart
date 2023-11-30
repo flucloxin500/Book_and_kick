@@ -6,16 +6,67 @@ import 'package:turf_project/top_left_navigation.dart';
 import 'package:intl/intl.dart';
 import 'package:turf_project/landscape.dart';
 
-class MainHomeScreen extends StatelessWidget {
+class MainHomeScreen extends StatefulWidget {
+  @override
+  _MainHomeScreenState createState() => _MainHomeScreenState();
+}
+
+class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          return orientation == Orientation.portrait
-              ? buildPortraitLayout(context)
-              : buildLandscapeLayout(context);
-        },
+    return WillPopScope(
+      onWillPop: () async {
+        final value = await showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Alert'),
+              content: Text('Do you want to exit?'),
+              backgroundColor: Colors.blueGrey,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(false);
+                  },
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(true);
+                  },
+                  child: Text(
+                    'Exit',
+                    style: TextStyle(
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+        if (value != null) {
+          return Future.value(value);
+        } else {
+          return Future.value(false);
+        }
+      },
+      child: Scaffold(
+        body: OrientationBuilder(
+          builder: (context, orientation) {
+            return orientation == Orientation.portrait
+                ? buildPortraitLayout(context)
+                : buildLandscapeLayout(context);
+          },
+        ),
       ),
     );
   }
@@ -33,7 +84,7 @@ class MainHomeScreen extends StatelessWidget {
           "Book & Kick",
           style: TextStyle(
             color: Colors.black87,
-            fontSize: 24,
+            fontSize: screenHeight * .03,
             fontWeight: FontWeight.w800,
           ),
         ),
@@ -50,7 +101,7 @@ class MainHomeScreen extends StatelessWidget {
           child: Icon(
             Icons.menu,
             color: Colors.white,
-            size: 20,
+            size: screenHeight * 0.028,
           ),
         ),
         actions: [
@@ -66,7 +117,7 @@ class MainHomeScreen extends StatelessWidget {
               child: Icon(
                 Icons.login_sharp,
                 color: Colors.white,
-                size: 20,
+                size: screenHeight * 0.028,
               ),
             ),
           ),
@@ -81,18 +132,17 @@ class MainHomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     margin: EdgeInsets.only(left: 4.5),
-                    height: screenHeight * 0.0399,
-                    width: 50,
+                    height: screenHeight * 0.045,
                     decoration: BoxDecoration(
                       color: Colors.greenAccent,
-                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                      borderRadius: BorderRadius.circular(screenHeight * 0.02),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
                         child: Text(
                           'Time: ${DateFormat('hh:mm').format(DateTime.now())}',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: screenHeight * 0.02),
                         ),
                       ),
                     ),
@@ -103,18 +153,17 @@ class MainHomeScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: screenHeight * 0.0399,
-                    width: screenWidth * 0.08,
+                    height: screenHeight * 0.045,
                     decoration: BoxDecoration(
                       color: Colors.greenAccent,
-                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                      borderRadius: BorderRadius.circular(screenHeight * 0.02),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
                         child: Text(
                           'Today: ${DateFormat('dd-MM-yyyy').format(DateTime.now())}',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: screenHeight * 0.02),
                         ),
                       ),
                     ),
@@ -125,246 +174,258 @@ class MainHomeScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-                width: screenWidth * 0.95,
-                height: screenHeight * 0.675,
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  children: [
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Frenzy Sports Arena',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/frenzy.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+            child: SingleChildScrollView(
+              child: Container(
+                  width: screenWidth * 0.95,
+                  height: screenHeight * 0.658,
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    physics: ScrollPhysics(),
+                    children: [
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Frenzy Sports Arena',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/frenzy.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Timeout',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/timeout.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.cover,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Timeout',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/timeout.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'RS Dynamic Ground',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/rs_dynamic.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'RS Dynamic Ground',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/rs_dynamic.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'D&C Arena',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/d_and_c.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'D&C Arena',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/d_and_c.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'AKC Play',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/akc.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'AKC Play',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/akc.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Stadium X',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/sportsX.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Stadium X',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/sportsX.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Victory Arena',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Image.asset(
-                                  'assets/victory.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Victory Arena',
+                                    style:
+                                        TextStyle(fontSize: screenHeight * 0.020),
+                                  ),
+                                  Image.asset(
+                                    'assets/victory.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Card(
-                        child: Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TopLeftNavigation()),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Global Sports Complex',
-                                  style: TextStyle(fontSize: 17),
-                                ),
-                                Image.asset(
-                                  'assets/global_sports.jpg',
-                                  height: screenHeight * 0.185,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
-                                ),
-                              ],
+                      Container(
+                        child: Card(
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopLeftNavigation()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Global Sports Complex',
+                                    style: TextStyle(
+                                        fontSize: screenHeight * 0.0180),
+                                  ),
+                                  Image.asset(
+                                    'assets/global_sports.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                )),
+                    ],
+                  ),
+              ),
+            ),
           ),
         ],
       ),

@@ -2,7 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turf_project/landscape.dart';
 
-class TopLeftNavigation extends StatelessWidget {
+class TopLeftNavigation extends StatefulWidget {
+  @override
+  _TopLeftNavigationState createState() => _TopLeftNavigationState();
+}
+
+class _TopLeftNavigationState extends State<TopLeftNavigation> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(
@@ -16,19 +21,22 @@ class TopLeftNavigation extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
+            toolbarHeight: AppBar().preferredSize.height,
             backgroundColor: Colors.blueGrey,
-            title: Text('Book & Kick'),
+            title: Text(
+              'Book & Kick',
+              style: TextStyle(fontSize: screenWidth * 0.051),
+            ),
             leading: IconButton(
               icon: Container(
-                height: screenHeight * 0.1,
-                width: screenHeight * 0.1,
+                height: screenHeight * 0.025,
+                width: screenWidth * 0.06,
                 child: Image.asset('assets/back_button.png'),
               ),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            toolbarHeight: screenHeight * 0.1,
           ),
           backgroundColor: Colors.amberAccent,
           body: Center(

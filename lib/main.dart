@@ -22,18 +22,27 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SplashScreenPortrait extends StatelessWidget {
+class SplashScreenPortrait extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 4),(){
+  _SplashScreenPortraitState createState() => _SplashScreenPortraitState();
+}
+
+class _SplashScreenPortraitState extends State<SplashScreenPortrait> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              MainHomeScreen(), // Replace 'FirstPage()' with your actual first page widget
+          builder: (context) => MainHomeScreen(),
         ),
       );
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -78,18 +87,27 @@ class SplashScreenPortrait extends StatelessWidget {
   }
 }
 
-class SplashScreenLandscape extends StatelessWidget {
+class SplashScreenLandscape extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 4),(){
+  _SplashScreenLandscapeState createState() => _SplashScreenLandscapeState();
+}
+
+class _SplashScreenLandscapeState extends State<SplashScreenLandscape> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              MainHomeScreen(), // Replace 'FirstPage()' with your actual first page widget
+          builder: (context) => MainHomeScreen(),
         ),
       );
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 

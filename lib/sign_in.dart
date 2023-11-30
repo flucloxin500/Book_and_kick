@@ -17,12 +17,16 @@ class _SigninState extends State<Signin> {
 
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: AppBar().preferredSize.height,
         backgroundColor: Colors.blueGrey,
-        title: Text('Book & Kick'),
+        title: Text('Book & Kick',
+            style: TextStyle(
+                fontSize: screenWidth * 0.051
+            )),
         leading: IconButton(
           icon: Container(
-            height: screenWidth * 0.1,
-            width: screenWidth * 0.1,
+            height: screenWidth * 0.06,
+            width: screenWidth * 0.06,
             child: Image.asset('assets/back_button.png'),
           ),
           onPressed: () {
@@ -30,9 +34,7 @@ class _SigninState extends State<Signin> {
               return MainHomeScreen.isFirst; // Replace with your condition
             });
           },
-        ),
-        toolbarHeight:
-            screenHeight * 0.1, // Adjust toolbar height based on screen height
+        ),// Adjust toolbar height based on screen height
       ),
       body: OrientationBuilder(
         builder: (context, orientation) {
@@ -67,7 +69,7 @@ class _SigninState extends State<Signin> {
               child: Text(
                 'Create a new account',
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: screenWidth * 0.08,
                   foreground: Paint()
                     ..style = PaintingStyle.stroke
                     ..strokeWidth = 2
@@ -175,8 +177,6 @@ class _SigninState extends State<Signin> {
   }
 
   Widget buildLandscapeLayout(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return RotatePhone();
   }
