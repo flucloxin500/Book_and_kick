@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
                 width: screenWidth * 0.9,
                 child: Padding(
                   padding: EdgeInsets.all(screenHeight * 0.0011),
-                  child: TextField(
+                  child: TextFormField(
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -103,7 +103,7 @@ class _LoginState extends State<Login> {
                 width: screenWidth * 0.9,
                 child: Padding(
                   padding: EdgeInsets.all(screenHeight * 0.0011),
-                  child: TextField(
+                  child: TextFormField(
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -163,7 +163,7 @@ class _LoginState extends State<Login> {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                            BorderRadius.circular(screenWidth * 0.018),
+                        BorderRadius.circular(screenWidth * 0.018),
                       ),
                       padding: EdgeInsets.all(screenWidth * 0.05),
                       backgroundColor: Colors.black54,

@@ -4,11 +4,6 @@ import 'package:lottie/lottie.dart';
 
 Widget RotatePhone() {
   return Scaffold(
-    appBar: AppBar
-      (
-
-    ),
-
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

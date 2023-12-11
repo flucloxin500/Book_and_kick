@@ -1,10 +1,16 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:turf_project/mainmenu.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    DevicePreview(
+      builder: (context) => MyApp(),
+    ),
+  );
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -155,3 +161,4 @@ class _SplashScreenLandscapeState extends State<SplashScreenLandscape> {
     );
   }
 }
+

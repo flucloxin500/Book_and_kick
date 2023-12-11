@@ -80,7 +80,7 @@ class _SigninState extends State<Signin> {
           ),
           Padding(
             padding: EdgeInsets.all(screenWidth * 0.05),
-            child: TextField(
+            child: TextFormField(
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -93,7 +93,7 @@ class _SigninState extends State<Signin> {
           ),
           Padding(
             padding: EdgeInsets.all(screenWidth * 0.05),
-            child: TextField(
+            child: TextFormField(
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
@@ -107,7 +107,7 @@ class _SigninState extends State<Signin> {
           ),
           Padding(
             padding: EdgeInsets.all(screenWidth * 0.05),
-            child: TextField(
+            child: TextFormField(
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -120,7 +120,7 @@ class _SigninState extends State<Signin> {
           ),
           Padding(
             padding: EdgeInsets.all(screenWidth * 0.05),
-            child: TextField(
+            child: TextFormField(
               obscureText: true,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
@@ -134,7 +134,7 @@ class _SigninState extends State<Signin> {
           ),
           Padding(
             padding: EdgeInsets.all(screenWidth * 0.05),
-            child: TextField(
+            child: TextFormField(
               obscureText: true,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
