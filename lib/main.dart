@@ -130,23 +130,25 @@ class _SplashScreenLandscapeState extends State<SplashScreenLandscape> {
               fit: BoxFit.fill,
             ),
             SizedBox(width: screenWidth * 0.05),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Book & Kick',
-                  style: TextStyle(
-                    fontSize: screenWidth * 0.05,
-                    fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Book & Kick',
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.05,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  'version 1.0.0.1',
-                  style: TextStyle(
-                    fontSize: screenWidth * 0.03,
+                  Text(
+                    'version 1.0.0.1',
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.03,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(width: screenWidth * 0.05),
             Lottie.asset(

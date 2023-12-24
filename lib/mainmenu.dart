@@ -177,7 +177,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             child: SingleChildScrollView(
               child: Container(
                 width: screenWidth * 0.95,
-                height: screenHeight * 0.658,
+                height: screenHeight * 0.645,
                 child: GridView.count(
                   crossAxisCount: 2,
                   shrinkWrap: true,
@@ -199,12 +199,14 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'Frenzy Sports Arena',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
-                                Image.asset(
-                                  'assets/frenzy.jpg',
-                                  height: screenHeight * 0.181,
-                                  width: screenWidth * 0.427,
+                                Expanded(
+                                  child: Image.asset(
+                                    'assets/frenzy.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                  ),
                                 ),
                               ],
                             ),
@@ -228,13 +230,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'Timeout',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
+                                Expanded(child:
                                 Image.asset(
                                   'assets/timeout.jpg',
                                   height: screenHeight * 0.181,
                                   width: screenWidth * 0.427,
                                   fit: BoxFit.cover,
+                                ),
                                 ),
                               ],
                             ),
@@ -258,13 +262,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'RS Dynamic Ground',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
-                                Image.asset(
-                                  'assets/rs_dynamic.jpg',
-                                  height: screenHeight * 0.181,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
+                                Expanded(
+                                  child: Image.asset(
+                                    'assets/rs_dynamic.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ],
                             ),
@@ -288,13 +294,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'D&C Arena',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
-                                Image.asset(
-                                  'assets/d_and_c.jpg',
-                                  height: screenHeight * 0.181,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
+                                Expanded(
+                                  child: Image.asset(
+                                    'assets/d_and_c.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ],
                             ),
@@ -318,13 +326,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'AKC Play',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
-                                Image.asset(
-                                  'assets/akc.jpg',
-                                  height: screenHeight * 0.181,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
+                                Expanded(
+                                  child: Image.asset(
+                                    'assets/akc.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ],
                             ),
@@ -348,13 +358,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'Stadium X',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
-                                Image.asset(
-                                  'assets/sportsX.jpg',
-                                  height: screenHeight * 0.181,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
+                                Expanded(
+                                  child: Image.asset(
+                                    'assets/sportsX.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ],
                             ),
@@ -378,13 +390,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                                 Text(
                                   'Victory Arena',
                                   style:
-                                  TextStyle(fontSize: screenHeight * 0.020),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                 ),
-                                Image.asset(
-                                  'assets/victory.jpg',
-                                  height: screenHeight * 0.181,
-                                  width: screenWidth * 0.427,
-                                  fit: BoxFit.fill,
+                                Expanded(
+                                  child: Image.asset(
+                                    'assets/victory.jpg',
+                                    height: screenHeight * 0.181,
+                                    width: screenWidth * 0.427,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ],
                             ),

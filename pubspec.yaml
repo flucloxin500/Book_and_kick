@@ -41,6 +41,12 @@ dependencies:
   intl: ^0.18.1
   webview_flutter: ^4.4.2
   device_preview: ^1.1.0
+  curved_navigation_bar: ^1.0.3
+  provider: ^6.1.1
+
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +78,8 @@ flutter:
     - assets/global_sports.jpg
     - assets/sportsX.jpg
     - assets/victory.jpg
+    - assets/home.png
+    - assets/login.gif
     # Replace with the path to your Lottie animation file
 
   # The following line ensures that the Material Icons font is
